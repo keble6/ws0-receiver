@@ -19,7 +19,7 @@ input.onButtonPressed(Button.B, function () {
     basic.showString("start")
 })
 // Set our team number!
-let team = 1
+let team = 5
 serial.writeLine("" + (team))
 radio.setGroup(team)
 radio.setTransmitPower(7)
