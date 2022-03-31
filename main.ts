@@ -2,7 +2,12 @@ input.onButtonPressed(Button.A, function () {
     serial.writeLine("Testing!")
 })
 radio.onReceivedString(function (receivedString) {
-    serial.writeLine(receivedString)
+    // Is this the dateTime message? If so then don't send "Enter"
+    if (receivedString.charAt(receivedString.length - 1) == ",") {
+        serial.writeString(receivedString)
+    } else {
+        serial.writeLine(receivedString)
+    }
     serial.writeString("")
 })
 input.onButtonPressed(Button.B, function () {
